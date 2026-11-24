@@ -5,7 +5,7 @@ import net.minecraft.core.component.PatchedDataComponentMap;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.PlainTextContents;
-import net.neoforged.neoforge.common.MutableDataComponentHolder;
+import net.minecraft.world.item.ItemStack;
 
 public class NameConverterHandler {
     public static void convert(PatchedDataComponentMap map) {
@@ -15,11 +15,8 @@ public class NameConverterHandler {
         }
     }
 
-    public static void convert(MutableDataComponentHolder map) {
-        var customName = map.remove(DataComponents.CUSTOM_NAME);
-        if (customName != null) {
-            map.set(DataComponents.ITEM_NAME, NameConverterHandler.trySimplify(customName));
-        }
+    public static void convert(ItemStack stack) {
+        convert(stack.components);
     }
 
     public static Component trySimplify(Component component) {
