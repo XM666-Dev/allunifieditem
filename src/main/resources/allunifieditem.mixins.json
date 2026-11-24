@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.xm666.allunifieditem.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ComponentUnifierMixin$ItemStackMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
