@@ -5,7 +5,6 @@ import net.minecraft.core.component.PatchedDataComponentMap;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.PlainTextContents;
-import net.minecraft.world.item.ItemStack;
 
 public class NameConverterHandler {
     public static void convert(PatchedDataComponentMap map) {
@@ -13,10 +12,6 @@ public class NameConverterHandler {
         if (customName != null) {
             map.set(DataComponents.ITEM_NAME, NameConverterHandler.trySimplify(customName));
         }
-    }
-
-    public static void convert(ItemStack stack) {
-        convert(stack.components);
     }
 
     public static Component trySimplify(Component component) {
